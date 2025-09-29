@@ -3,14 +3,18 @@
 
 PLANT-SAN의 Aruduino 파트는 식물의 상태를 실시간으로 모니터링하고, 서버에 상태를 송신하며, OLED 디스플레이에 귀여운 표정으로 식물의 기분을 표현합니다.
 
-**주요 기능:**
-- 🌞 조도(빛) 감지
-- 💧 수분(물) 감지
-- 😊 식물 상태에 따른 4가지 표정 표시
-- 📱 블루투스를 통한 실시간 데이터 전송
-- 📊 센서 데이터 평균값 계산 및 전송
 
-## 🔌 회로 연결
+![20250604_103257](https://github.com/user-attachments/assets/a5dcba62-0d79-41da-a9bd-a2626b8ebd7f)
+
+
+
+**주요 기능:**
+- 조도(빛), 수분(물) 감지
+- 식물 상태에 따른 4가지 표정 표시
+- 블루투스를 통한 실시간 데이터 전송
+- 센서 데이터 평균값 계산 및 전송
+
+## 회로 연결
 
 ### 1. OLED 디스플레이 (SSD1306 - SPI 방식)
 ```
@@ -71,11 +75,9 @@ RXD   → D7 (Arduino TX)
     └─────────────────┘
 ```
 
-## 📚 라이브러리 설치
+## 라이브러리 설치
 
-Arduino IDE를 열고 다음 라이브러리를 설치하세요.
-
-### 방법 1: 라이브러리 매니저 사용 (권장)
+### 라이브러리 매니저 사용
 
 1. Arduino IDE 메뉴: `스케치` → `라이브러리 포함하기` → `라이브러리 관리`
 2. 검색창에 라이브러리 이름 입력 후 설치
@@ -85,17 +87,13 @@ Arduino IDE를 열고 다음 라이브러리를 설치하세요.
 - **Adafruit SSD1306** (by Adafruit)
 - **TimerOne** (by Jesse Tane, Jérôme Despatis, Michael Polli, Dan Clemens, Paul Stof)
 
-### 방법 2: 수동 설치
-
-1. 각 라이브러리 GitHub에서 ZIP 파일 다운로드
-2. `스케치` → `라이브러리 포함하기` → `.ZIP 라이브러리 추가`
 
 **기본 포함 라이브러리** (별도 설치 불필요):
 - SPI.h
 - Wire.h
 - SoftwareSerial.h
 
-## 💻 코드 업로드
+## 코드 업로드
 
 ### 1단계: Arduino IDE 설정
 1. Arduino IDE 실행
@@ -114,7 +112,7 @@ char recvId[10] = "SWJ_SQL";  // 원하는 이름으로 변경 가능
 2. `스케치` → `업로드` 클릭
 3. 업로드 완료 대기 (약 10초)
 
-## 🎮 사용 방법
+## 사용 방법
 
 ### 1. 기본 동작 확인
 
@@ -155,7 +153,7 @@ char recvId[10] = "SWJ_SQL";  // 원하는 이름으로 변경 가능
              └────── 명령어
 ```
 
-## 🎭 동작 원리
+## 동작 원리
 
 ### 표정 상태 (4가지)
 
@@ -165,6 +163,15 @@ char recvId[10] = "SWJ_SQL";  // 원하는 이름으로 변경 가능
 | 😐 보통 (Soso) | 물 O + 빛 X | 1 | 물만 있음 |
 | 🌞 햇빛 (Sunshine) | 물 X + 빛 O | 1 | 빛만 있음 |
 | 😢 슬픔 (Sad) | 물 X + 빛 X | 0 | 물과 빛 모두 부족 |
+
+
+
+
+<img width="204" height="204" alt="image (1)" src="https://github.com/user-attachments/assets/cdd81a8b-9979-4a32-bf43-1a2079a68713" />  <img width="204" height="207" alt="image" src="https://github.com/user-attachments/assets/9ffb7fa8-63e9-46e2-9c9b-ac2b10a4a305" />  <img width="189" height="204" alt="image (3)" src="https://github.com/user-attachments/assets/c6f4d447-ba61-4e9a-a81a-3b5497b3b527" />  <img width="189" height="204" alt="image (2)" src="https://github.com/user-attachments/assets/1d24b467-5c5e-486e-9162-353df701fd95" />
+
+
+
+
 
 ### 센서 임계값
 ```cpp
@@ -182,7 +189,7 @@ bool isBright = cds > 24;             // 조도 감지 기준 (0~100 스케일)
 - **수분(Water)**: 0~1023 (높을수록 습함)
 - **행복도(Happy)**: 0~2 (0=슬픔, 1=보통, 2=행복)
 
-## 🔧 DEBUG
+## DEBUG
 
 ### OLED 화면이 안 켜지는 경우
 - [ ] 5V, GND 연결 확인
@@ -221,7 +228,7 @@ Error: 'Adafruit_SSD1306' does not name a type
 - [ ] 라이브러리 설치 확인
 - [ ] Arduino IDE 재시작
 
-## 🎯 커스터마이징
+## 커스터마이징
 
 ### 센서 임계값 조정
 ```cpp
