@@ -94,6 +94,11 @@ PLANT-SAN은 반려동물의 정서적 위안 효과는 유지하되, 실제 동
 
 ---
 
+## **시연 영상**
+
+https://youtube.com/shorts/rAXJnOaaPnQ?feature=share
+
+---
 ## 🔧 기술 스택
 
 ### 하드웨어
